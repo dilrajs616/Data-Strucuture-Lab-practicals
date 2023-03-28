@@ -18,6 +18,7 @@ class StackArrayOperations{
     void displayStatus();
     void checkPallindorme();
     void pressButton();
+    bool isEmpty();
 };
 
 
@@ -106,8 +107,7 @@ void StackArrayOperations :: pushElement(){
 void StackArrayOperations :: popElement(){
     system("cls");
     cout << "**********Pop Element*********" << endl;
-    if(array.empty())
-        cout << "Stack is already empty." << endl;
+    if(isEmpty());
     else{
         array.pop_back();
         cout << "Element has been successfully popped." << endl;
@@ -116,8 +116,7 @@ void StackArrayOperations :: popElement(){
 }
 
 void StackArrayOperations :: displayStatus(){
-    if(array.empty())
-        cout << "Stack is already empty." << endl;
+    if(isEmpty());
     else{
         int top = array.size();
         system("cls");
@@ -131,8 +130,7 @@ void StackArrayOperations :: displayStatus(){
 void StackArrayOperations :: checkPallindorme(){    
     system("cls");
     cout << "**********Check Pallindrome*********" << endl;
-    if(array.empty())
-        cout << "Stack is empty" << endl;
+    if(isEmpty());
     else{
         int topIndex = array.size()-1, indicator = 0, bottomIndex = 0;
         while(bottomIndex < topIndex){
@@ -149,6 +147,14 @@ void StackArrayOperations :: checkPallindorme(){
             cout << "Stack forms a pallindrome." << endl;
     }
     pressButton();
+}
+
+bool StackArrayOperations :: isEmpty(){
+    if(array.empty()){
+        cout << "Stack is empty" << endl;
+        return true;
+    }
+    else return false;
 }
 
 void StackArrayOperations :: pressButton(){
